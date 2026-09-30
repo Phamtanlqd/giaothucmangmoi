@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phiếu thực hành online | Bài 4 – Giao thức mạng</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--cyan:#e8f6ff;--gold:#ffca45;--ink:#203447;--muted:#617487;--line:#d9e5ef;--green:#16845d}
+*{box-sizing:border-box}body{margin:0;background:#f2f7fb;color:var(--ink);font:16px/1.55 Inter,system-ui,Arial,sans-serif}
+header{background:linear-gradient(125deg,#102a43,#1769aa);color:white;padding:34px 20px 30px}
+.wrap{max-width:1000px;margin:auto}.eyebrow{font-weight:800;letter-spacing:.12em;color:#b9e5ff;font-size:12px}
+h1{font-size:clamp(28px,5vw,46px);line-height:1.08;margin:10px 0}header p{max-width:720px;color:#e5f3ff;margin:12px 0 0}
+main{max-width:1000px;margin:22px auto;padding:0 16px 50px}.meta,.panel,.task{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 6px 20px #173b5910}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.field label,.task label{display:block;font-weight:700;margin:0 0 6px}
+input[type=text],textarea,select{width:100%;border:1px solid #c7d6e2;border-radius:10px;padding:11px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:85px;resize:vertical}.section{display:flex;align-items:center;gap:12px;margin:26px 0 10px}.num{background:var(--gold);color:#263746;font-weight:900;border-radius:12px;padding:8px 12px}.section h2{font-size:23px;margin:0;color:var(--navy)}
+.task h3{margin:0 0 8px;color:var(--blue);font-size:19px}.hint{color:var(--muted);font-size:14px}.choice{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin:8px 0;cursor:pointer}.choice input{margin-right:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:var(--cyan);border:1px solid #c6e8fa;border-radius:9px;padding:8px 12px;font-weight:700}
+.flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0}.node{padding:12px 15px;border-radius:12px;background:#e8f6ff;border:1px solid #b8def3;font-weight:800}.arrow{font-size:22px;color:var(--blue)}
+button{border:0;border-radius:12px;padding:12px 18px;font:inherit;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#e8f0f7;color:var(--navy)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.feedback{padding:12px;border-radius:10px;background:#effaf5;color:#126344;margin-top:12px;display:none}.score{font-weight:900;color:var(--green)}
+footer{color:var(--muted);text-align:center;font-size:13px;margin-top:24px}
+@media(max-width:600px){.meta,.panel,.task{padding:15px}.section h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="eyebrow">PHIẾU HỌC TẬP SỐ • TIN HỌC</div><h1>BÀI 4. GIAO THỨC MẠNG</h1><p>Tiết 2 · Thực hành khám phá cách IP định địa chỉ, TCP tổ chức truyền dữ liệu và xử lí tình huống mạng.</p></div></header>
+<main>
+<div class="meta">
+<div class="field"><label for="name">Họ và tên</label><input id="name" type="text" placeholder="Nhập họ tên"></div>
+<div class="field"><label for="class">Lớp</label><input id="class" type="text" placeholder="Ví dụ: 11B10"></div>
+<div class="field"><label for="team">Nhóm</label><input id="team" type="text" placeholder="Số nhóm"></div>
+<div class="field"><label for="date">Ngày thực hành</label><input id="date" type="text" placeholder="dd/mm/yyyy"></div>
+</div>
+<div class="panel"><b>🎯 Mục tiêu</b><p>Sau hoạt động, em có thể mô tả nhiệm vụ của IP và TCP; phân tích tình huống truyền dữ liệu; giải thích vì sao cần địa chỉ, cổng, thứ tự gói và xác nhận.</p><div class="chips"><span class="chip">Quan sát</span><span class="chip">Phân tích</span><span class="chip">Thử nghiệm</span><span class="chip">Kết luận</span></div></div>
+<div class="section"><span class="num">01</span><h2>Khởi động – Ai làm việc gì?</h2></div>
+<div class="task"><h3>Nhiệm vụ 1 · Ghép vai trò giao thức</h3><p>Đọc mô tả và chọn giao thức phù hợp nhất.</p>
+<label for="q1">a) Xác định địa chỉ và hỗ trợ chuyển dữ liệu từ nguồn đến đích qua mạng.</label><select id="q1"><option value="">-- Chọn --</option><option>TCP</option><option>IP</option><option>Ethernet</option></select>
+<label for="q2" style="margin-top:12px">b) Chia dữ liệu thành các phần, đánh số thứ tự và có cơ chế xác nhận để gửi lại khi cần.</label><select id="q2"><option value="">-- Chọn --</option><option>TCP</option><option>IP</option><option>Ethernet</option></select>
+<label for="q3" style="margin-top:12px">c) Truyền dữ liệu trong mạng cục bộ dựa trên địa chỉ MAC.</label><select id="q3"><option value="">-- Chọn --</option><option>TCP</option><option>IP</option><option>Ethernet</option></select>
+</div>
+<div class="section"><span class="num">02</span><h2>Thực hành – Hành trình của dữ liệu</h2></div>
+<div class="task"><h3>Nhiệm vụ 2 · Theo dấu một yêu cầu</h3><p>Tình huống: Máy A gửi yêu cầu truy cập website đến máy chủ. Hãy sắp xếp các ý thành mô tả hợp lí về vai trò của IP và TCP (không cần mô tả mọi bước kỹ thuật).</p>
+<div class="flow"><div class="node">Ứng dụng tạo dữ liệu</div><span class="arrow">→</span><div class="node">TCP</div><span class="arrow">→</span><div class="node">IP</div><span class="arrow">→</span><div class="node">Mạng</div></div>
+<label for="explain">Viết 3–5 câu: TCP hỗ trợ gì? IP hỗ trợ gì? Vì sao hai chức năng này bổ sung cho nhau?</label><textarea id="explain" placeholder="Câu trả lời của em..."></textarea>
+</div>
+<div class="task"><h3>Nhiệm vụ 3 · Khi gói tin đến không đúng thứ tự</h3><p>Máy gửi chia dữ liệu thành 3 gói: ①, ②, ③. Máy nhận nhận được theo thứ tự: ③, ①, ②.</p>
+<label class="choice"><input type="radio" name="order" value="a">Dữ liệu chắc chắn bị hỏng và không thể khôi phục.</label>
+<label class="choice"><input type="radio" name="order" value="b">TCP dùng số thứ tự để sắp xếp, ráp các phần theo đúng trình tự.</label>
+<label class="choice"><input type="radio" name="order" value="c">IP tự động biến ③ thành ①.</label>
+<label for="why">Giải thích ngắn gọn lựa chọn của em:</label><textarea id="why" placeholder="Vì sao?"></textarea>
+</div>
+<div class="section"><span class="num">03</span><h2>Thử thách – Chẩn đoán tình huống</h2></div>
+<div class="task"><h3>Nhiệm vụ 4 · Chọn đúng lớp chức năng</h3><p>Trong phòng máy, hai máy tính cùng mạng LAN cần trao đổi dữ liệu. Một bạn nói: “Chỉ cần có địa chỉ IP là Ethernet không còn cần thiết”.</p>
+<label class="choice"><input type="radio" name="diag" value="a">Đúng, IP thay thế hoàn toàn Ethernet.</label>
+<label class="choice"><input type="radio" name="diag" value="b">Chưa đúng, IP và Ethernet đảm nhiệm các chức năng khác nhau; Ethernet truyền trong mạng cục bộ dựa trên MAC.</label>
+<label class="choice"><input type="radio" name="diag" value="c">Đúng, vì địa chỉ MAC chỉ dùng trên Internet.</label>
+<label for="diagwhy">Nêu lập luận của nhóm (2–4 câu):</label><textarea id="diagwhy" placeholder="Lập luận..."></textarea>
+</div>
+<div class="section"><span class="num">04</span><h2>Sản phẩm & tự đánh giá</h2></div>
+<div class="task"><h3>Nhiệm vụ 5 · Kết luận của em</h3><label for="conclusion">Hoàn thành câu: “IP giúp…, còn TCP giúp… Vì vậy…”</label><textarea id="conclusion" placeholder="Kết luận..."></textarea>
+<p><b>🤖 AI Challenge (tùy chọn)</b><br>Hỏi AI: “Nếu bỏ cơ chế đánh số thứ tự và xác nhận của TCP thì có thể gặp vấn đề gì?” Sau đó kiểm chứng câu trả lời bằng nội dung bài học và ghi lại điều em đồng ý/chưa đồng ý.</p>
+<label for="ai">Kết quả hỏi AI – kiểm chứng – kết luận:</label><textarea id="ai" placeholder="AI nói gì? Em kiểm chứng bằng ý nào trong bài? Kết luận của em..."></textarea>
+<p><b>✅ Tự đánh giá</b></p>
+<label class="choice"><input type="checkbox">Em phân biệt được vai trò của IP và TCP.</label>
+<label class="choice"><input type="checkbox">Em giải thích được ý nghĩa của số thứ tự và xác nhận.</label>
+<label class="choice"><input type="checkbox">Em có thể dùng ví dụ để trình bày đường đi của dữ liệu.</label>
+<div class="actions"><button class="primary" onclick="checkAnswers()">Kiểm tra câu trắc nghiệm</button><button class="secondary" onclick="downloadWork()">Tải phiếu đã làm (.txt)</button><button class="secondary" onclick="window.print()">In phiếu</button></div><div id="feedback" class="feedback" aria-live="polite"></div>
+<p class="hint">Lưu ý: Phiếu chạy trực tiếp trên trình duyệt. Nút tải xuất câu trả lời thành tệp để học sinh nộp cho giáo viên; muốn thu bài tự động cần kết nối thêm Google Forms/Sheets hoặc backend.</p>
+</div>
+<footer>BÀI 4 · GIAO THỨC MẠNG | Think • Explore • Explain</footer>
+</main>
+<script>
+function checkAnswers(){
+ let score=0, total=5;
+ if(document.getElementById('q1').value==='IP')score++;
+ if(document.getElementById('q2').value==='TCP')score++;
+ if(document.getElementById('q3').value==='Ethernet')score++;
+ if(document.querySelector('input[name="order"]:checked')?.value==='b')score++;
+ if(document.querySelector('input[name="diag"]:checked')?.value==='b')score++;
+ const f=document.getElementById('feedback');f.style.display='block';
+ f.innerHTML='<span class="score">Kết quả: '+score+'/'+total+' câu đúng.</span> '+(score===total?'Rất tốt! Hãy hoàn thiện phần giải thích.':'Đọc lại mô tả vai trò IP, TCP và Ethernet rồi thử lại.');
+}
+function downloadWork(){
+ const ids=['name','class','team','date','q1','q2','q3','explain','why','diagwhy','conclusion','ai'];
+ const labels=['Họ tên','Lớp','Nhóm','Ngày','Nhiệm vụ 1a','Nhiệm vụ 1b','Nhiệm vụ 1c','Nhiệm vụ 2','Nhiệm vụ 3 giải thích','Nhiệm vụ 4 lập luận','Kết luận','AI Challenge'];
+ let out='PHIẾU THỰC HÀNH ONLINE – BÀI 4: GIAO THỨC MẠNG\\n\\n';
+ ids.forEach((id,i)=>{let el=document.getElementById(id);out+=labels[i]+': '+(el?.value||'')+'\\n\\n';});
+ out+='Nhiệm vụ 3 chọn: '+(document.querySelector('input[name="order"]:checked')?.value||'Chưa chọn')+'\\n';
+ out+='Nhiệm vụ 4 chọn: '+(document.querySelector('input[name="diag"]:checked')?.value||'Chưa chọn')+'\\n';
+ const blob=new Blob([out],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='phieu_thuc_hanh_bai4.txt';a.click();URL.revokeObjectURL(url);
+}
+</script></body></html>
